@@ -1,12 +1,11 @@
-from account.account_manager import AccountManager
-import output_manager
-import window_manager
+from account.data_manager import DataManager
+from console import output_manager, window_manager
 import tools
 import pickle
 import os
 
 
-class PickleAccountManager(AccountManager):
+class PickleManager(DataManager):
     def __init__(self) -> None:
         self._save_dir = "../data/"
         self._file_name = "".join((self._save_dir + "accounts.acc"))
@@ -20,7 +19,15 @@ class PickleAccountManager(AccountManager):
                     self.accounts_data = pickle.load(fr)
                 except EOFError:
                     window_manager.clear_screen()
-                    print("".join(["ERROR: ", self._file_name, " file is corrupted. Try to delete the file"]))
+                    print(
+                        "".join(
+                            [
+                                "ERROR: ",
+                                self._file_name,
+                                " file is corrupted. Try to delete the file",
+                            ]
+                        )
+                    )
                     output_manager.wait()
                     window_manager.close_app()
 

@@ -13,13 +13,15 @@ def password_validation(password: str) -> None:
     if not password.strip():
         raise errors.PasswordError("ERROR: empty password")
     if len(password) < MIN_PASSWORD_LEN:
-        raise errors.PasswordError(f"ERROR: password mast be at least {MIN_PASSWORD_LEN} character long")
+        raise errors.PasswordError(
+            f"ERROR: password mast be at least {MIN_PASSWORD_LEN} character long"
+        )
     return None
 
 
 def name_validation(name: str) -> None:
     """
-    Basic name validation check.
+    Basic name validation check. Raises errors.UserNameError
     :param name: user password
     """
     if not name.strip():
@@ -36,4 +38,6 @@ def hash_password(password: str) -> str:
 
 def check_password(hashed: str, user_password: str) -> bool:
     password, salt = hashed.split(":")
-    return password == hashlib.sha256(salt.encode() + user_password.encode()).hexdigest()
+    return (
+        password == hashlib.sha256(salt.encode() + user_password.encode()).hexdigest()
+    )

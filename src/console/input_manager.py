@@ -1,5 +1,4 @@
-import window_manager
-import output_manager
+from console import output_manager, window_manager
 
 
 def select_action() -> int:

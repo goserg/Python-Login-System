@@ -1,7 +1,7 @@
 from abc import ABC
 
 
-class AccountManager(ABC):
+class DataManager(ABC):
     def is_user_exists(self, name: str) -> bool:
         pass
 

@@ -1,7 +1,7 @@
 # tkinter Login System
 Simple python learning project  
 
-![v0.1 screenshot](img/v0.1 screenshot.png?raw=true "v0.1 screenshot")  
+![v0.1 screenshot](img/v0.1_screenshot.png?raw=true "v0.1 screenshot")  
 
 features: 
 * tkinter GUI 
